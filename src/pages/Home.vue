@@ -16,9 +16,7 @@ import { Tabs, Tab, Button, Badge, Dropdown } from 'flowbite-vue'
 import 'flowbite'
 import router from '../router'
 import Sidebars from '../components/Sidebars.vue'
-import Dashboard from '../components/Dashboard.vue'
-import Navbar from '../components/Navbar.vue'
-import BarChart from '../components/Barchart.vue'
+
 
 export default {
   name: 'Home',
@@ -75,10 +73,9 @@ export default {
     Tabs,
     Tab,
     Badge,
-    BarChart,
+   
     Sidebars,
-    Dashboard,
-    Navbar,
+   
     Layout,
   },
 }
