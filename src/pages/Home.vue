@@ -44,9 +44,10 @@ export default {
   },
   setup() {
     const route = useRoute();
-    const router = useRouter(); 
+    const router = useRouter();
+    const items = ref([]); 
     onBeforeMount(() => {
-      this.fetchData();
+      fetchData();
     });
 
     onMounted(() => {
@@ -59,7 +60,7 @@ export default {
       },
     })
     .then(response => {
-      this.items = response.data;
+      items.value = response.data;
       console.log(response.data)
     })
     .catch(error => {
@@ -68,6 +69,12 @@ export default {
       console.log('Error message:', error.message);
     });
   };
+  const handleTabSelected =   tabName=> {
+      this.activeTab = tabName;
+      // Use the router to navigate to the selected tab
+      router.push('/' + tabName);
+    };
+   
     
     return {
       router ,
