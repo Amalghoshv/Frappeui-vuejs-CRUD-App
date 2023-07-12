@@ -1,13 +1,9 @@
 <template>
   <div class="flex">
-    <div>
-      <Sidebars/>
-    </div>
+    <Navbar />
     <div class="w-full">
-      <Navbar/>
       <div class="dashboard-wrapper">
-        <router-view></router-view>
-        
+        <slot></slot>
       </div>
     </div>
   </div>

@@ -1,10 +1,8 @@
 <template>
   <div>
     <Layout>
-      <Sidebars @tabSelected="handleTabSelected" />
+      <router-view></router-view>
     </Layout>
-    <component :is="activeTab"></component>
-    <router-view></router-view>
   </div>
 </template>
 
