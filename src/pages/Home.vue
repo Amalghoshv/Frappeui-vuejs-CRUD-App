@@ -52,10 +52,26 @@ export default {
     onMounted(() => {
       console.log('Current route:', route.value);
     });
+    const fetchData = () => {
+    axios.get('https://propfi-erp.enfono.com/api/resource/Unit/', {
+      headers: {
+        Authorization: 'token 2e83ad6ac981c0e:6d9c75d97aee1c7',
+      },
+    })
+    .then(response => {
+      this.items = response.data;
+      console.log(response.data)
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      console.log('Error response:', error.response);
+      console.log('Error message:', error.message);
+    });
+  };
     
     return {
       router ,
-      fetchData: this.fetchData,
+      fetchData
     };
   },
   
