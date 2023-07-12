@@ -39,14 +39,14 @@ export default {
       showText: true,
       buttonPosition: 'auto',
       showDropdown: false,
-      fetchData
+      
     }
   },
   setup() {
     const route = useRoute();
     const router = useRouter(); 
     onBeforeMount(() => {
-      fetchData();
+      this.fetchData();
     });
 
     onMounted(() => {
@@ -54,7 +54,8 @@ export default {
     });
     
     return {
-      router 
+      router ,
+      fetchData: this.fetchData,
     };
   },
   
