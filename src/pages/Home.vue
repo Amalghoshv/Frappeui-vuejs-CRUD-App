@@ -15,25 +15,9 @@ import { onMounted,ref, onBeforeMount  } from 'vue'
 import { useRoute, useRouter } from 'vue-router' 
 import axios from 'axios';
 
-
-
-
-
-
 export default {
   name: 'Home',
-  data() {
-    return {
-      items: [],
-      showDialog: false,
-      isOpen: ref(false),
-      activeTab: ref('first'),
-      showText: true,
-      buttonPosition: 'auto',
-      showDropdown: false,
-      
-    }
-  },
+  
   setup() {
     const route = useRoute();
     const router = useRouter();
@@ -73,6 +57,7 @@ export default {
     
     return {
       items,
+      fetchData,
       handleTabSelected,
     };
   },
