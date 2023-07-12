@@ -12,8 +12,8 @@ import UnitsView from './components/UnitsView.vue'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'Dashboard',
+    component: Dashboard,
   },
   {
     path: '/dashboard',
