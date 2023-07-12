@@ -80,7 +80,6 @@ export default {
     Tab,
     Badge,
     Navbar,
-   
     Sidebars,
    
     
