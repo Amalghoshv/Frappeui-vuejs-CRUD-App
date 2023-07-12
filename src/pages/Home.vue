@@ -1,10 +1,15 @@
 <template>
-  <div>
-    <Layout>
+  <div class="flex">
+    <div>
       <Sidebars @tabSelected="handleTabSelected" />
-    </Layout>
-    <component :is="activeTab"></component>
-    <router-view></router-view>
+    </div>
+
+    <div class="w-full">
+      <Navbar />
+      <div class="dashboard-wrapper">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,6 +21,7 @@ import { Tabs, Tab, Button, Badge, Dropdown } from 'flowbite-vue'
 import 'flowbite'
 import router from '../router'
 import Sidebars from '../components/Sidebars.vue'
+import Navbar from '../components/Navbar.vue'
 
 
 export default {
@@ -73,10 +79,11 @@ export default {
     Tabs,
     Tab,
     Badge,
+    Navbar,
    
     Sidebars,
    
-    Layout,
+    
   },
 }
 </script>

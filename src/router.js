@@ -26,11 +26,7 @@ const routes = [
     name: 'properties',
     component: Properties
   },
-  {
-    path: '/frontend/', 
-    component: Home, 
-    name: 'Frontend',
-  },
+
   {
     path: '/units', 
     component: Units, 
