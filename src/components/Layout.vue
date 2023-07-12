@@ -3,12 +3,11 @@
     <div>
       <Sidebars/>
     </div>
-
     <div class="w-full">
       <Navbar/>
       <div class="dashboard-wrapper">
         <router-view></router-view>
-        <Dashboard/>
+        
       </div>
     </div>
   </div>

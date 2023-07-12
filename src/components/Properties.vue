@@ -30,10 +30,7 @@
               label="Property Type"
             ></v-select>
             <v-select :items="drops" v-model="status" label="Status"></v-select>
-            <v-text-field
-              v-model="email"
-              label="Email"
-            ></v-text-field>
+            <v-text-field v-model="email" label="Email"></v-text-field>
             <v-text-field
               v-model="numberOfUnits"
               label="Number of Units"
@@ -46,14 +43,15 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" @click="saveProperty(),showAlert()" >Save</v-btn>
+          <v-btn color="primary" @click="saveProperty(), showAlert()"
+            >Save</v-btn
+          >
           <v-btn color="secondary" @click="closeDialog()">Cancel</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
     <v-container fluid>
       <v-row>
-     
         <v-col
           v-for="(item, index) in items"
           :key="index"
@@ -62,81 +60,89 @@
           md="6"
           lg="3"
           xl="3"
-        >   
-        <router-link :to="{ name: 'propertiesview', params: { itemName: item.name }}">  <v-card
-            :loading="loading"
-            class="mx-auto my-12 card1"
-            max-width="374"
-            cols="12"
-            sm="6"
-            md="6"
-            lg="3"
-            xl="3"
+        >
+          <router-link
+            :to="{ name: 'propertiesview', params: { itemName: item.name } }"
           >
-            <template v-slot:loader="{ isActive }">
-              <v-progress-linear
-                :active="isActive"
-                color="deep-purple"
-                height="4"
-                indeterminate
-              ></v-progress-linear>
-            </template>
-            <div class="img-container">
-              <v-img
-                cover
-                height="250"
-                src="https://img.freepik.com/free-vector/city-skyline-concept-illustration_114360-8923.jpg?w=2000"
-              ></v-img>
-              <span :class="getStatusClass(item.status)" class="imgspan">{{ item.status }}</span>
-            </div>
-            <v-card-item>
-              <v-card-title>{{ item.name }}</v-card-title>
-
-              <v-card-subtitle>
-                <span class="me-1 types">{{ item.type }}</span>
-
-                <v-icon
-                  color="error"
-                  icon="mdi-fire-circle"
-                  size="small"
-                ></v-icon>
-              </v-card-subtitle>
-            </v-card-item>
-
-            <v-card-text>
-              <div class="my-4 text-subtitle-1">
-                Total Units : {{ item.units }}
+            <v-card
+              :loading="loading"
+              class="mx-auto my-12 card1"
+              max-width="374"
+              cols="12"
+              sm="6"
+              md="6"
+              lg="3"
+              xl="3"
+            >
+              <template v-slot:loader="{ isActive }">
+                <v-progress-linear
+                  :active="isActive"
+                  color="deep-purple"
+                  height="4"
+                  indeterminate
+                ></v-progress-linear>
+              </template>
+              <div class="img-container">
+                <v-img
+                  cover
+                  height="250"
+                  src="https://img.freepik.com/free-vector/city-skyline-concept-illustration_114360-8923.jpg?w=2000"
+                ></v-img>
+                <span :class="getStatusClass(item.status)" class="imgspan">{{
+                  item.status
+                }}</span>
               </div>
-              <div class="my-4 text-subtitle-1">Floor : {{ item.floors }}</div>
+              <v-card-item>
+                <v-card-title>{{ item.name }}</v-card-title>
 
-              <div>
-                Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s, when an unknown printer took a galley of type
-                and scrambled it to make a type specimen book.
-              </div>
-            </v-card-text>
+                <v-card-subtitle>
+                  <span class="me-1 types">{{ item.type }}</span>
 
-            <v-divider class="mx-4 mb-1"></v-divider>
-            <v-card-actions>
-              <v-btn color="deep-purple-lighten-2 more" variant="text">
-                More
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </router-link>
+                  <v-icon
+                    color="error"
+                    icon="mdi-fire-circle"
+                    size="small"
+                  ></v-icon>
+                </v-card-subtitle>
+              </v-card-item>
+
+              <v-card-text>
+                <div class="my-4 text-subtitle-1">
+                  Total Units : {{ item.units }}
+                </div>
+                <div class="my-4 text-subtitle-1">
+                  Floor : {{ item.floors }}
+                </div>
+
+                <div>
+                  Lorem Ipsum has been the industry's standard dummy text ever
+                  since the 1500s, when an unknown printer took a galley of type
+                  and scrambled it to make a type specimen book.
+                </div>
+              </v-card-text>
+
+              <v-divider class="mx-4 mb-1"></v-divider>
+              <v-card-actions>
+                <v-btn color="deep-purple-lighten-2 more" variant="text">
+                  More
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </router-link>
         </v-col>
       </v-row>
     </v-container>
   </div>
 </template>
   <style>
-  .topdiv{
-    background-color: white;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-  }
-  body{
-    background-color: rgb(226, 239, 243);
-  }
+.topdiv {
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+body {
+  background-color: rgb(226, 239, 243);
+}
 v-card {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
@@ -149,12 +155,11 @@ v-card {
 .img-container {
   position: relative;
 }
-.img-container:hover{
+.img-container:hover {
   scale: 1.03;
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   object-fit: contain;
 }
-
 
 .imgspan {
   position: absolute;
@@ -170,14 +175,13 @@ v-card {
 .card1:hover {
   border: 1px solid blue;
   background-color: honeydew;
-  
 }
 </style>
   <script>
 import axios from 'axios'
 
-import VueSweetalert2 from 'vue-sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
 export default {
   name: 'properties',
   data() {
@@ -190,18 +194,17 @@ export default {
       property_type: '',
       numberOfUnits: '',
       numberOfFloors: '',
-      email:'',
+      email: '',
       status: '',
       loading: false,
       items: [],
-     
     }
   },
   mounted() {
     this.fetchProperties()
   },
-  components:{
-    VueSweetalert2
+  components: {
+    VueSweetalert2,
   },
   methods: {
     openDialog() {
@@ -217,20 +220,18 @@ export default {
       // Get the values from the input fields
       const propertyData = {
         propertyName: this.propertyName,
-    property_type: this.property_type,
-    numberOfUnits: this.numberOfUnits,
-    numberOfFloors: this.numberOfFloors,
-    status: this.status,
-    email:this.email
-
-        
+        property_type: this.property_type,
+        numberOfUnits: this.numberOfUnits,
+        numberOfFloors: this.numberOfFloors,
+        status: this.status,
+        email: this.email,
       }
       console.log('propertyData is :', propertyData)
-      this.$router.push('/properties');
-     
+      this.fetchProperties()
+      this.$router.push('/properties')
+
       this.postData(propertyData)
       this.closeDialog()
-     
     },
     getStatusClass(status) {
       if (status === 'Available') {
@@ -256,7 +257,7 @@ export default {
             units: item.total_units,
             floors: item.number_of_floors,
             status: item.status,
-            email:item.email
+            email: item.email,
           }))
         })
         .catch((error) => {
@@ -272,7 +273,7 @@ export default {
         status: data.status,
         total_units: data.numberOfUnits,
         number_of_floors: data.numberOfFloors,
-        email:data.email
+        email: data.email,
       }
 
       axios
@@ -289,28 +290,24 @@ export default {
         .then((response) => {
           console.log('Data successfully posted:', response.data)
           this.fetchProperties()
-          this.$router.push('/properties');
+          this.$router.push('/properties')
         })
         .catch((error) => {
           console.error('Error posting data:', error)
         })
     },
     showAlert() {
-  this.$swal.fire({
-    title: 'Property Saved Successfully',
-    icon: 'success',
-    toast: true,
-    position: 'top-end',
-    timer: 3000,
-    timerProgressBar: true,
-    showConfirmButton: false,
-  });
-},
+      this.$swal.fire({
+        title: 'Property Saved Successfully',
+        icon: 'success',
+        toast: true,
+        position: 'top-end',
+        timer: 3000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      })
+    },
 
-
-    
-
-   
     clearFields() {
       this.propertyName = ''
       this.propertyRate = ''
