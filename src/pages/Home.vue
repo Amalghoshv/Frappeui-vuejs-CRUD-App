@@ -13,35 +13,58 @@
 import Layout from '../components/Layout.vue'
 import { onMounted,ref, onBeforeMount  } from 'vue'
 import { useRoute, useRouter } from 'vue-router' 
+
+import { Tabs, Tab, Button, Badge, Dropdown } from 'flowbite-vue'
+import 'flowbite'
+import router from '../router'
+import  Sidebars  from '../components/Sidebars.vue'
+import Dashboard from '../components/Dashboard.vue'
+import Navbar from '../components/Navbar.vue'
 import axios from 'axios';
+import BarChart from '../components/Barchart.vue'
+
+
+
+
 
 export default {
   name: 'Home',
-  
+  data() {
+    return {
+      items: [],
+      showDialog: false,
+      isOpen: ref(false),
+      activeTab: ref('first'),
+      showText: true,
+      buttonPosition: 'auto',
+      showDropdown: false,
+      
+    }
+  },
   setup() {
     const route = useRoute();
     const router = useRouter();
     const items = ref([])
-    const fetchData = () => {
-      axios
-        .get('https://propfi-erp.enfono.com/api/resource/Unit/', {
-          headers: {
-            Authorization: 'token 2e83ad6ac981c0e:6d9c75d97aee1c7',
-          },
-        })
-        .then(response => {
-          items.value = response.data
-          console.log(response.data)
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error)
-          console.log('Error response:', error.response)
-          console.log('Error message:', error.message)
-        })
-    }
+    // const fetchData = () => {
+    //   axios
+    //     .get('https://propfi-erp.enfono.com/api/resource/Unit/', {
+    //       headers: {
+    //         Authorization: 'token 2e83ad6ac981c0e:6d9c75d97aee1c7',
+    //       },
+    //     })
+    //     .then(response => {
+    //       items.value = response.data
+    //       console.log(response.data)
+    //     })
+    //     .catch(error => {
+    //       console.error('Error fetching data:', error)
+    //       console.log('Error response:', error.response)
+    //       console.log('Error message:', error.message)
+    //     })
+    // }
 
     onBeforeMount(() => {
-      fetchData();
+      // fetchData();
     });
 
     onMounted(() => {
@@ -57,8 +80,8 @@ export default {
     
     return {
       items,
-      fetchData,
-      handleTabSelected,
+      // fetchData,
+      handleTabSelected
     };
   },
   
@@ -66,22 +89,22 @@ export default {
   methods: {
    
    
-    fetchData() {
-      axios.get('https://propfi-erp.enfono.com/api/resource/Unit/',{
-        headers:{
-          Authorization: 'token 2e83ad6ac981c0e:6d9c75d97aee1c7'
-        }
-      })
-        .then(response => {
-          this.items = response.data;
-          console.log(response.data)
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-          console.log('Error response:', error.response);
-      console.log('Error message:', error.message);
-        });
-    },
+    // fetchData() {
+    //   axios.get('https://propfi-erp.enfono.com/api/resource/Unit/',{
+    //     headers:{
+    //       Authorization: 'token 2e83ad6ac981c0e:6d9c75d97aee1c7'
+    //     }
+    //   })
+    //     .then(response => {
+    //       this.items = response.data;
+    //       console.log(response.data)
+    //     })
+    //     .catch(error => {
+    //       console.error('Error fetching data:', error);
+    //       console.log('Error response:', error.response);
+    //   console.log('Error message:', error.message);
+    //     });
+    // },
     
     handleTabSelected(tabName) {
       this.activeTab = tabName;
