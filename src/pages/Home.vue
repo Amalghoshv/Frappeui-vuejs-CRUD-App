@@ -1,27 +1,21 @@
 <template>
-  <div class="flex">
-    <div>
+  <div>
+    <Layout>
       <Sidebars @tabSelected="handleTabSelected" />
-    </div>
-
-    <div class="w-full">
-      <Navbar />
-      <div class="dashboard-wrapper">
-        <router-view></router-view>
-      </div>
-    </div>
+    </Layout>
+    <component :is="activeTab"></component>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-
+import Layout from '../components/Layout.vue'
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Tabs, Tab, Button, Badge, Dropdown } from 'flowbite-vue'
 import 'flowbite'
 import router from '../router'
 import Sidebars from '../components/Sidebars.vue'
-import Navbar from '../components/Navbar.vue'
 
 
 export default {
@@ -79,10 +73,10 @@ export default {
     Tabs,
     Tab,
     Badge,
-    Navbar,
+   
     Sidebars,
    
-    
+    Layout,
   },
 }
 </script>
