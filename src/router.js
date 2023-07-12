@@ -4,7 +4,7 @@ import Properties from './components/Properties.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebars.vue'
 import { createApp } from 'vue'
-// import Home from './pages/Home.vue'
+import Home from './pages/Home.vue'
 import Units from './components/Units.vue'
 import Portfolio from './components/Portfolio.vue'
 import Propertyview from './components/PropertiesView.vue'
@@ -12,8 +12,8 @@ import UnitsView from './components/UnitsView.vue'
 const routes = [
   {
     path: '/',
-    name: 'Units',
-    component: Units,
+    name: 'Home',
+    component: Home,
   },
   {
     path: '/dashboard',

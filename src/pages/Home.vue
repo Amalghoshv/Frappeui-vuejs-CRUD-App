@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Layout from '../components/Layout.vue'
+
 import { onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Tabs, Tab, Button, Badge, Dropdown } from 'flowbite-vue'
