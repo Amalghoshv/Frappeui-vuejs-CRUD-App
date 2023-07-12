@@ -16,7 +16,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  
+  build: {},
   optimizeDeps: {
     include: ['frappe-ui > feather-icons', 'showdown', 'engine.io-client'],
   },
