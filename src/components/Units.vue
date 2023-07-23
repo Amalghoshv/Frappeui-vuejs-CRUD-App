@@ -238,6 +238,7 @@ export default {
             amount: item.rent_amount,
           }))
           this.propertyNames = Array.from(new Set(this.items.map((item) => item.property)));
+          console.log('Fetched UNit Data:', this.items)
         })
         .catch((error) => {
           console.error('Error fetching data:', error)

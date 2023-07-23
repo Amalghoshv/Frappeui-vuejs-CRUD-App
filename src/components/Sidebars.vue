@@ -92,7 +92,7 @@
                   >
                 </a>
               </li></router-link>
-              <router-link to="/portfolio"><li  class="rounded-sm items " :class="{ 'selected': selectedItem === 'item4' }" @click="selectItem('item4')">
+              <router-link to="/portfolio"><li  class="rounded-sm items " :class="{ 'selected': selectedItem === 'item3' }" @click="selectItem('item3')">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@
                   >
                 </a>
               </li></router-link>
-              <router-link to="/units"><li :class="{ 'selected': selectedItem === 'item3' }" @click="selectItem('item3')" class="rounded-sm items">
+              <router-link to="/units"><li :class="{ 'selected': selectedItem === 'item4' }" @click="selectItem('item4')" class="rounded-sm items">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +137,7 @@
                   <span v-if="showText" class="text-black text-xl">Units</span>
                 </a>
               </li></router-link>
-              <li class="rounded-sm items">
+              <router-link to="/tenants"><li :class="{ 'selected': selectedItem === 'item5' }" @click="selectItem('item5')" class="rounded-sm items">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -152,10 +152,10 @@
                     ></path>
                   </svg>
 
-                  <span v-if="showText" class="text-black text-xl">HR</span>
+                  <span v-if="showText" class="text-black text-xl">Tenants</span>
                 </a>
-              </li>
-              <li class="rounded-sm items">
+              </li></router-link>
+              <router-link to="/lease_contracts"><li :class="{ 'selected': selectedItem === 'item6' }" @click="selectItem('item6')" class="rounded-sm items">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -171,29 +171,35 @@
                   </svg>
 
                   <span v-if="showText" class="text-black text-xl"
-                    >Legal Cases</span
+                    >Lease Contract</span
                   >
                 </a>
-              </li>
-              <li class="rounded-sm items">
+              </li></router-link>
+              <router-link to="/maintenance"><li :class="{ 'selected': selectedItem === 'item7' }" @click="selectItem('item7')" class="rounded-sm items">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke="black"
                     class="w-6 h-6 text-black"
                   >
                     <path
-                      d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                      d="M11.5 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5Zm2 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5Zm-10 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6Zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6ZM5 3a1 1 0 0 0-1 1h-.5a.5.5 0 0 0 0 1H4v1h-.5a.5.5 0 0 0 0 1H4a1 1 0 0 0 1 1v.5a.5.5 0 0 0 1 0V8h1v.5a.5.5 0 0 0 1 0V8a1 1 0 0 0 1-1h.5a.5.5 0 0 0 0-1H9V5h.5a.5.5 0 0 0 0-1H9a1 1 0 0 0-1-1v-.5a.5.5 0 0 0-1 0V3H6v-.5a.5.5 0 0 0-1 0V3Zm0 1h3v3H5V4Zm6.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2Z"
+                    ></path>
+                    <path
+                      d="M1 2a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 9H1V8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6H1V5H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 2H1Zm1 11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11Z"
                     ></path>
                   </svg>
 
-                  <span v-if="showText" class="text-black text-xl">Assets</span>
+                  <span v-if="showText" class="text-black text-xl"
+                    >Maintenance</span
+                  >
                 </a>
-              </li>
-              <li class="rounded-sm items">
+              </li></router-link> 
+             
+              <router-link to="/hr"><li :class="{ 'selected': selectedItem === 'item8' }" @click="selectItem('item8')" class="rounded-sm items">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -215,10 +221,10 @@
                   </svg>
 
                   <span v-if="showText" class="text-black text-xl"
-                    >Logbook</span
+                    >HR</span
                   >
                 </a>
-              </li>
+              </li></router-link>
               <li class="rounded-sm items">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
@@ -285,27 +291,22 @@
                   <span v-if="showText" class="text-black text-xl">Tasks</span>
                 </a>
               </li>
-              <li class="rounded-sm items">
+               <li class="rounded-sm items">
                 <a href="#" class="flex items-center p-2 space-x-3 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1"
-                    stroke="black"
+                    stroke-width="1.5"
+                    stroke="currentColor"
                     class="w-6 h-6 text-black"
                   >
                     <path
-                      d="M11.5 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5Zm2 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5Zm-10 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6Zm0 2a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6ZM5 3a1 1 0 0 0-1 1h-.5a.5.5 0 0 0 0 1H4v1h-.5a.5.5 0 0 0 0 1H4a1 1 0 0 0 1 1v.5a.5.5 0 0 0 1 0V8h1v.5a.5.5 0 0 0 1 0V8a1 1 0 0 0 1-1h.5a.5.5 0 0 0 0-1H9V5h.5a.5.5 0 0 0 0-1H9a1 1 0 0 0-1-1v-.5a.5.5 0 0 0-1 0V3H6v-.5a.5.5 0 0 0-1 0V3Zm0 1h3v3H5V4Zm6.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2Z"
-                    ></path>
-                    <path
-                      d="M1 2a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 9H1V8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6H1V5H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 2H1Zm1 11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11Z"
+                      d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
                     ></path>
                   </svg>
 
-                  <span v-if="showText" class="text-black text-xl"
-                    >Maintenance</span
-                  >
+                  <span v-if="showText" class="text-black text-xl">Assets</span>
                 </a>
               </li>
               <li class="rounded-sm items">

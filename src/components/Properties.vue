@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-container class="border border-red-400 mx-4 mt-2 rounded-lg topdiv">
-      <v-row align="center" justify="space-between">
+    <v-container class="border border-red-400 mx-4 mt-3  rounded-lg topdiv">
+      <v-row   justify="space-between">
         <v-col class="" cols="auto">
           <span class="text">Properties List</span>
         </v-col>
@@ -139,6 +139,8 @@
   background-color: white;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+   
+    
 }
 body {
   background-color: rgb(226, 239, 243);
@@ -259,6 +261,7 @@ export default {
             status: item.status,
             email: item.email,
           }))
+        
         })
         .catch((error) => {
           console.error('Error fetching data:', error)

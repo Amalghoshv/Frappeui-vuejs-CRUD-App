@@ -9,6 +9,12 @@ import Units from './components/Units.vue'
 import Portfolio from './components/Portfolio.vue'
 import Propertyview from './components/PropertiesView.vue'
 import UnitsView from './components/UnitsView.vue'
+import Tenants from './components/Tenants.vue'
+import TenantsView from './components/TenantView.vue'
+import LeaseContract from './components/Leasecontracts.vue'
+import Maintenance from './components/Maintenance.vue'
+import Hr  from './components/Hr.vue'
+
 const routes = [
   {
     path: '/',
@@ -46,6 +52,31 @@ const routes = [
     path: '/units/:itemName',
     name: 'unitsView',
     component: UnitsView
+  },
+  {
+    path: '/tenants',
+    name: 'Tenants',
+    component: Tenants
+  },
+  {
+    path: '/tenants/:tenantName',
+    name: 'TenantsView',
+    component: TenantsView
+  },
+  {
+    path: '/lease_contracts',
+    name: 'LeaseContract',
+    component: LeaseContract
+  },
+  {
+    path: '/maintenance',
+    name: 'Maintenance',
+    component: Maintenance
+  },
+  {
+    path: '/hr',
+    name: 'HR',
+    component: Hr
   },
 ]
 const router = createRouter({

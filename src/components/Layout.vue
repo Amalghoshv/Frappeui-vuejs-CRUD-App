@@ -1,9 +1,9 @@
 <template>
   <div class="flex">
-    <Navbar />
+    
     <div class="w-full">
       <div class="dashboard-wrapper">
-        <slot></slot>
+      
       </div>
     </div>
   </div>

@@ -699,318 +699,7 @@
 
         <!-- Calender -->
         <div class="flex flex-col items-center justify-center cal">
-
-
-        <!-- <Calendar/> -->
-          <div
-            class="w-full max-w-lg p-5 mx-auto mr-4 bg-white rounded-2xl shadow-xl flex flex-col mr-3 border border-blue-500"
-          >
-            <div class="flex justify-between pb-4">
-              <div class="-rotate-90 cursor-pointer">
-                <svg
-                  width="12"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.001 6L6.00098 1L1.00098 6"
-                    stroke="black"
-                    stroke-opacity="0.4"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <span class="uppercase text-sm font-semibold text-gray-600"
-                >July - 2023</span
-              >
-              <div class="rotate-90 cursor-pointer">
-                <svg
-                  width="12"
-                  height="7"
-                  viewBox="0 0 12 7"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M11.001 6L6.00098 1L1.00098 6"
-                    stroke="black"
-                    stroke-opacity="0.4"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div
-              class="flex justify-between font-medium uppercase text-xs pt-4 pb-2 border-t"
-            >
-              <div
-                class="px-3 border rounded-sm w-14 h-5 flex items-center justify-center shadow-md"
-              >
-                sun
-              </div>
-
-              <span
-                class="px-3 border rounded-sm w-14 h-5 flex items-center justify-center shadow-md"
-              >
-                mon
-              </span>
-
-              <span
-                class="px-3 border rounded-sm w-14 h-5 flex items-center justify-center shadow-md"
-              >
-                tue
-              </span>
-
-              <span
-                class="px-3 border rounded-sm w-14 h-5 flex items-center justify-center shadow-md"
-              >
-                wed
-              </span>
-
-              <span
-                class="px-3 border rounded-sm w-14 h-5 flex items-center justify-center shadow-md"
-              >
-                thu
-              </span>
-
-              <span
-                class="px-3 border rounded-sm w-14 h-5 flex items-center justify-center shadow-md"
-              >
-                fri
-              </span>
-
-              <span
-                class="px-3 border rounded-sm w-14 h-5 flex items-center justify-center shadow-md"
-              >
-                sat
-              </span>
-            </div>
-
-            <div class="flex justify-between font-medium text-sm pb-2">
-              <span
-                class="px-1 text-gray-400 w-14 flex justify-center items-center"
-              >
-                28
-              </span>
-
-              <span
-                class="px-1 text-gray-400 w-14 flex justify-center items-center"
-              >
-                29
-              </span>
-
-              <span
-                class="px-1 w-14 text-gray-400 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                30
-              </span>
-
-              <span
-                class="px-1 w-14 text-gray-400 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                31
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                01
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                02
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                03
-              </span>
-            </div>
-            <div class="flex justify-between font-medium text-sm pb-2">
-              <span
-                class="px-1 w-14 flex justify-center items-center border text-red-500 cursor-pointer"
-              >
-                04
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                05
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                06
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                07
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                08
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                09
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                10
-              </span>
-            </div>
-
-            <div class="flex justify-between font-medium text-sm pb-2">
-              <span
-                class="px-1 w-14 flex justify-center items-center border text-red-500 cursor-pointer"
-              >
-                11
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                12
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                13
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                14
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                15
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                16
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                17
-              </span>
-            </div>
-
-            <div class="flex justify-between font-medium text-sm pb-2">
-              <span
-                class="px-1 w-14 flex justify-center items-center border text-red-500 cursor-pointer"
-              >
-                18
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                19
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                20
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                21
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                22
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer "
-              >
-                23
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                24
-              </span>
-            </div>
-
-            <div class="flex justify-between font-medium text-sm pb-2">
-              <span
-                class="px-1 w-14 flex justify-center items-center border text-red-500 cursor-pointer"
-              >
-                25
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                26
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                27
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                28
-              </span>
-
-              <span
-                class="px-1 w-14 flex justify-center items-center border hover:border-green-500 hover:text-green-500 cursor-pointer"
-              >
-                29
-              </span>
-
-              <span
-                class="px-1  w-14 flex justify-center items-center bg-green-500 border border-green-500 rounded-2xl shadow"
-              >
-                30
-              </span>
-
-              <span
-                class="px-1 text-gray-400 w-14 flex justify-center items-center"
-              >
-                01
-              </span>
-            </div>
-          </div>
+          <VCalendar  expanded class="my-calendar" :attributes="attributes" />
 
           <div class="mt-5">
             <div class="card w-10">
@@ -1034,11 +723,23 @@
 </template>
 <style>
 @import '../index.css';
+.my-calendar .vc-weekday-1, .my-calendar .vc-weekday-7 {
+  color: #6366f1;
+}
+.my-calendar{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
 </style>
 
 <script>
 import { Tabs, Tab, Button, Badge, Dropdown } from 'flowbite-vue'
 
+const attributes = ref([
+  {
+    highlight: true,
+    dates: new Date(),
+  },
+]);
 import { ref } from 'vue'
 import axios from 'axios'
 import 'flowbite'
@@ -1055,7 +756,13 @@ export default{
       items: [],
       numberOfUnits: 0,
       numberOfTenants :0,
-      numberOfProperty:0
+      numberOfProperty:0,
+      attributes :ref([
+  {
+    highlight: true,
+    dates: new Date(),
+  },
+])
     
     }
   },
