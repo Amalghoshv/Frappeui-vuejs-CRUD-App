@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="m-3">
+  <div>
+    <div class="m-3">
       <div class="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-3">
         <div
           class="w-51 px-4 py-4 bg-white rounded-lg flex border border-blue-500"
@@ -27,7 +27,7 @@
               Total Employees
             </div>
             <div class="m-1 ml-13 text-6xl font-semibold text-gray-900">
-              {{ numberOfProperty }}
+              {{ totalEmployees }}
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@
               New Hires (This Year)
             </div>
             <div class="m-1 ml-13 text-6xl font-semibold text-gray-900">
-              {{ numberOfTenants }}
+              {{ newEmployees }}
             </div>
           </div>
         </div>
@@ -97,17 +97,396 @@
               Employee Exits(This Year)
             </div>
             <div class="m-1 ml-13 text-6xl font-semibold text-gray-900">
-              {{ numberOfUnits }}
+              {{ exitEmployees }}
             </div>
           </div>
         </div>
-        
       </div>
     </div>
+    <div class=" ">
+      <v-container>
+        <v-row>
+          <v-col>
+            <div class="v-col-auto chartsstyle rounded-lg">
+              <div>
+                <h1 class="text-h5">Gender Diversity</h1>
+                <p class=" text-grey">Last synced just now</p>
+                <Pie  class="p-7" :data="chartData" />
+              </div></div
+          ></v-col>
+          <v-col>
+            <div class="v-col-auto chartsstyle rounded-lg">
+              <div><h2 class="text-h5">Employees by Type</h2></div>
+              <p class=" text-grey">Last synced just now</p>
+              <Doughnut class="p-7"  :data="chartDataemp"/>
+            </div></v-col
+          >
+        </v-row>
+        <v-row>
+          <v-col>
+            <div class="v-col-auto chartsstyle rounded-lg p-5">
+              <div >
+                <h1 class="text-h5">Designation Wise Employee Count</h1>
+                <p class=" text-grey">Last synced just now</p>
+                <Pie class="p-7"  :data="chartDatadesg" />
+              </div></div
+          ></v-col>
+          <v-col>
+            <div class="v-col-auto chartsstyle rounded-lg">
+              <div><h2 class="text-h5">Department Wise Employee Count</h2></div>
+              <p class=" text-grey">Last synced just now</p>
+              <Doughnut class="p-7"  :data="chartDataemp"/>
+            </div></v-col
+          >
+        </v-row>
+      </v-container>
     </div>
+  </div>
 </template>
+
+
 <script>
+import axios from 'axios'
+import { Bar, Doughnut, Line, Pie } from 'vue-chartjs'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  ArcElement,
+  LineElement,
+  PointElement,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from 'chart.js'
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  LineElement,
+  PointElement,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  ArcElement
+)
 export default {
+  name: 'HR',
+
+  data() {
+    return {
+      employees: '',
+      totalEmployees: '',
+      newEmployees: '',
+      exitEmployees: '',
+      loaded: false,
+      chartdata:'',
+      chartdataemp:'',
+      chartdatadesg:'',
+      chartDatadep:''
+
+      
+    }
+  },
+  computed: {
+    genderDistribution() {
+      const genderData = {
+        male: 0,
+        female: 0,
+        other: 0,
+      };
+
+      if (this.chartdata && Array.isArray(this.chartdata)) {
+        this.chartdata.forEach((employee) => {
+          if (employee.gender === "Male") {
+            genderData.male++;
+          } else if (employee.gender === "Female") {
+            genderData.female++;
+          } else {
+            genderData.other++;
+          }
+        });
+      }
+
+      return genderData;
+    },
+    chartData() {
+      return {
+        labels: ["Male", "Female", "Other"],
+        datasets: [
+          {
+            data: [
+              this.genderDistribution.male,
+              this.genderDistribution.female,
+              this.genderDistribution.other,
+            ],
+            backgroundColor: ["#224C98", "#1ca9c9", "#7B68EE"],
+          },
+        ],
+      };
+    },
+    employeeType(){
+      const empData = {
+        intern: 0,
+        fulltime: 0,
+        other: 0,
+      };
+
+      if (this.chartdataemp && Array.isArray(this.chartdataemp)) {
+        this.chartdataemp.forEach((employee) => {
+          if (employee.employment_type === "Intern") {
+            empData.intern++;
+          } else if (employee.employment_type  === "Full-time") {
+            empData.fulltime++;
+          } else {
+            empData.other++;
+          }
+        });
+      }
+
+      return empData;
+    },
+    chartDataemp() {
+      return {
+        labels: ["Intern", "Full-time"],
+        datasets: [
+          {
+            data: [
+              this.employeeType.intern,
+              this.employeeType.fulltime,
+              
+            ],
+            backgroundColor: ["#6050DC", "#0093AF"],
+          },
+        ],
+      };
+    },
+    employeeDesg(){
+      const empData = {
+        ceo: 0,
+        hr: 0,
+        sd: 0,
+      };
+
+      if (this.chartdatadesg && Array.isArray(this.chartdatadesg)) {
+        this.chartdatadesg.forEach((employee) => {
+          if (employee.designation === "Chief Executive Officer") {
+            empData.ceo++;
+          } else if (employee.designation  === "HR Manager") {
+            empData.hr++;
+          } else {
+            empData.sd++;
+          }
+        });
+      }
+
+      return empData;
+    },
+    chartDatadesg() {
+      return {
+        labels: ["Chief Executive Officer","HR Manager", "Software Developer"],
+        datasets: [
+          {
+            data: [
+              this.employeeDesg.ceo,
+              this.employeeDesg.hr,
+              this.employeeDesg.sd,
+              
+            ],
+            backgroundColor: ["#6050DC", "#0093AF","#7B68EE"],
+          },
+        ],
+      };
+    },
+    employeeDep(){
+      const empData = {
+        research: 0,
+        operations: 0,
+        sd: 0,
+      };
+
+      if (this.chartdatadep && Array.isArray(this.chartdatadep)) {
+        this.chartdatadep.forEach((employee) => {
+          if (employee.department === "Research & Development") {
+            empData.research++;
+          } else if (employee.department === "Operations") {
+            empData.operations++;
+          } else {
+            empData.sd++;
+          }
+        });
+      }
+
+      return empData;
+    },
+    chartDatadep() {
+      return {
+        labels: ["Chief Executive Officer","HR Manager", "Software Developer"],
+        datasets: [
+          {
+            data: [
+              this.employeeDep.research,
+              this.employeeDep.operations,
+              this.employeeDep.sd,
+              
+            ],
+            backgroundColor: ["#6050DC", "#0093AF","#7B68EE"],
+          },
+        ],
+      };
+    }
+  },
+  components: { Bar, Doughnut, Line, Pie },
+  mounted() {
+    this.totalEmployeeCount()
+    this.newEmployeeCount()
+    this.exitEmployeeCount()
+    this.genderCount()
+    this.empTypeCount()
+    this.empDesgCount()
+    this.employeeDataDep()
+  },
+
+  methods: {
+    genderCount() {
+      axios
+        .get('https://hrmdemo.enfono.com/api/resource/Employee?fields=["gender"]', {
+          headers: {
+            Authorization: 'token 01fa19931f43b6c:4d6d848f4be76b2',
+          },
+        })
+        .then((response) => {
+          this.chartdata = response.data.data
+          console.log("chartdata is ",this.chartdata)
+          
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error)
+          console.log('Error response:', error.response)
+          console.log('Error message:', error.message)
+        })
+    },
+    empTypeCount() {
+      axios
+        .get('https://hrmdemo.enfono.com/api/resource/Employee?fields=["employment_type"]', {
+          headers: {
+            Authorization: 'token 01fa19931f43b6c:4d6d848f4be76b2',
+          },
+        })
+        .then((response) => {
+          this.chartdataemp = response.data.data
+          console.log("chartdata is ",this.chartdataemp)
+          
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error)
+          console.log('Error response:', error.response)
+          console.log('Error message:', error.message)
+        })
+    },
+    empDesgCount() {
+      axios
+        .get('https://hrmdemo.enfono.com/api/resource/Employee?fields=["designation"]', {
+          headers: {
+            Authorization: 'token 01fa19931f43b6c:4d6d848f4be76b2',
+          },
+        })
+        .then((response) => {
+          this.chartdatadesg = response.data.data
+          
+          
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error)
+          console.log('Error response:', error.response)
+          console.log('Error message:', error.message)
+        })
+    },
+    employeeDataDep() {
+      axios
+        .get('https://hrmdemo.enfono.com/api/resource/Employee?fields=["department"]', {
+          headers: {
+            Authorization: 'token 01fa19931f43b6c:4d6d848f4be76b2',
+          },
+        })
+        .then((response) => {
+          this.chartdatadep = response.data.data
+          
+          
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error)
+          console.log('Error response:', error.response)
+          console.log('Error message:', error.message)
+        })
+    },
+    totalEmployeeCount() {
+      axios
+        .get('https://hrmdemo.enfono.com/api/resource/Employee', {
+          headers: {
+            Authorization: 'token 01fa19931f43b6c:4d6d848f4be76b2',
+          },
+        })
+        .then((response) => {
+          this.employees = response.data.data
+          this.totalEmployees = this.employees.length
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error)
+          console.log('Error response:', error.response)
+          console.log('Error message:', error.message)
+        })
+    },
+
+    newEmployeeCount() {
+      axios
+        .get(
+          'https://hrmdemo.enfono.com/api/resource/Employee?filters=[["date_of_joining", ">=", "2023-01-01"]]',
+          {
+            headers: {
+              Authorization: 'token 01fa19931f43b6c:4d6d848f4be76b2',
+            },
+          }
+        )
+        .then((response) => {
+          this.employees = response.data.data
+          this.newEmployees = this.employees.length
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error)
+          console.log('Error response:', error.response)
+          console.log('Error message:', error.message)
+        })
+    },
+    exitEmployeeCount() {
+      axios
+        .get(
+          'https://hrmdemo.enfono.com/api/resource/Employee?filters=[["relieving_date", ">=", "2023-01-01"]]',
+          {
+            headers: {
+              Authorization: 'token 01fa19931f43b6c:4d6d848f4be76b2',
+            },
+          }
+        )
+        .then((response) => {
+          this.employees = response.data.data
+          this.exitEmployees = this.employees.length
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error)
+          console.log('Error response:', error.response)
+          console.log('Error message:', error.message)
+        })
+    },
     
+  },
 }
 </script>
+<style scoped>
+.chartsstyle {
+ 
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+</style>
