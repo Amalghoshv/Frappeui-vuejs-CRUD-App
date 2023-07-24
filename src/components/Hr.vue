@@ -294,7 +294,7 @@ export default {
               this.employeeDesg.sd,
               
             ],
-            backgroundColor: ["#6050DC", "#0093AF","#7B68EE"],
+            backgroundColor: ["#6050DC", "#5F9EA0","#15f4ee"],
           },
         ],
       };
