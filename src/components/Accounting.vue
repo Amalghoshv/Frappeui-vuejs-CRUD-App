@@ -103,7 +103,7 @@
 <hr>
 
 
-    <div class="m-2 text-h5">Debtor Report</div>
+    <div class="m-2 text-h5 mb-3 mt-4">Income Report</div>
 
     <v-table density="compact" class="tables ">
     <thead class="text-center">
