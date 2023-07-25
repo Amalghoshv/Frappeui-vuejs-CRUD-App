@@ -54,7 +54,7 @@
                 :enable-time-picker="false"
               ></VueDatePicker>
               <VueDatePicker
-                class="mt-4"
+                class="mt-4 mb-3"
                 auto-apply
                 placeholder="Select Rent End Date"
                 :auto-position="false"
@@ -68,7 +68,7 @@
                 v-model="deposit"
                 label="Deposit status"
               ></v-select>
-              <v-select :items="units" v-model="unit" label="Unit"></v-select>
+              <v-select :items="units" v-model="unitName" label="Unit"></v-select>
               <v-select
                 :items="cStatuses"
                 v-model="cStatus"
@@ -88,7 +88,7 @@
       <v-container fluid>
         <v-row>
           <v-col
-            v-for="(item, index) in items"
+            v-for="(item, index) in contractsData"
             :key="index"
             cols="12"
             sm="6"
@@ -199,10 +199,12 @@
     name: 'properties',
     data() {
       return {
+        propertiesData: [], 
+      contractsData: [],
         unitTypes: [],
         unitType: '',
         units: [],
-        unit: '',
+        unitName: '',
         cName: '',
         name: '',
         customers: [],
@@ -224,7 +226,8 @@
       }
     },
     mounted() {
-      this.clearFields()
+      
+     
       this.fetchContracts()
       this.fetchProperties()
       this.fetchUnits()
@@ -252,18 +255,18 @@
             }
           )
           .then((response) => {
-            this.items = response.data.data.map((item) => ({
-              property: item.property,
-              type: item.unit_type,
+            this.propertiesData  = response.data.data.map((item) => ({
+              unitProperty: item.property,
+              unitType: item.unit_type,
             }))
             this.propertyNames = Array.from(
-              new Set(this.items.map((item) => item.property))
+              new Set(this.propertiesData.map((item) => item.unitProperty))
             )
             this.unitTypes = Array.from(
-              new Set(this.items.map((item) => item.type))
+              new Set(this.propertiesData.map((item) => item.unitType))
             )
 
-            console.log('Fetched UNit Data:', this.items)
+            // console.log('Fetched UNit Data:', this.items)
           })
           .catch((error) => {
             console.error('Error fetching data:', error)
@@ -283,10 +286,10 @@
           )
           .then((response) => {
             this.units = response.data.data.map((unit) => ({
-              name: unit.name,
+              unitName: unit.name,
             }))
-            this.units = Array.from(new Set(this.units.map((unit) => unit.name)))
-            console.log('Fetched UNit Data:', this.items)
+            this.units = Array.from(new Set(this.units.map((unit) => unit.unitName)))
+            console.log('Fetched UNit Data:', this.units)
           })
           .catch((error) => {
             console.error('Error fetching data:', error)
@@ -305,7 +308,7 @@
             }
           )
           .then((response) => {
-            this.items = response.data.data.map((item) => ({
+            this.contractsData = response.data.data.map((item) => ({
               name: item.name,
               property: item.property_name,
               type: item.unit_type,
@@ -319,16 +322,16 @@
               customer: item.lease_customer,
             }))
             this.propertyNames = Array.from(
-              new Set(this.items.map((item) => item.property))
+              new Set(this.contractsData.map((item) => item.property))
             )
             this.deposits = Array.from(
-              new Set(this.items.map((item) => item.deposit))
+              new Set(this.contractsData.map((item) => item.deposit))
             )
             this.cStatuses = Array.from(
-              new Set(this.items.map((item) => item.status))
+              new Set(this.contractsData.map((item) => item.status))
             )
             this.customers = Array.from(
-              new Set(this.items.map((item) => item.customer))
+              new Set(this.contractsData.map((item) => item.customer))
             )
             
           })
@@ -386,6 +389,7 @@
       },
       deleteContract(item) {
     this.itemId = item.name;
+    console.log("itemid for deletion is ",this.itemId)
 
     axios
       .delete(`https://propfi-erp.enfono.com/api/resource/Lease%20Contract/${this.itemId}`, {
@@ -398,6 +402,15 @@
         console.log('Lease Contract successfully deleted:', this.itemId);
       
         this.items = this.items.filter((item) => item.name !== this.itemId);
+        Swal.fire({
+            icon: 'success',
+            title: 'Contract Deleted',
+            text: 'The status has been deleted successfully!',
+            timer: 1500,
+            showConfirmButton: false,
+          })
+          this.fetchMaintenance()
+       
       })
       .catch((error) => {
         console.error('Error deleting Lease Contract:', error);
@@ -432,7 +445,7 @@
           wDate: this.wDate,
           cStatus: this.cStatus,
           customer: this.customer,
-          unit: this.unit,
+          unit: this.unitName,
         }
         console.log('Contract Data is :', contractData)
         this.fetchProperties()
