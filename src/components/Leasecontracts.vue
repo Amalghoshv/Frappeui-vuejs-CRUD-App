@@ -224,6 +224,7 @@
       }
     },
     mounted() {
+      this.clearFields()
       this.fetchContracts()
       this.fetchProperties()
       this.fetchUnits()
@@ -329,7 +330,7 @@
             this.customers = Array.from(
               new Set(this.items.map((item) => item.customer))
             )
-            console.log('Fetched UNit Data:', this.items)
+            
           })
           .catch((error) => {
             console.error('Error fetching data:', error)
@@ -393,9 +394,10 @@
         },
       })
       .then((response) => {
-        console.log('Lease Contract successfully deleted:', itemId);
+        console.log('delete response',response)
+        console.log('Lease Contract successfully deleted:', this.itemId);
       
-        this.items = this.items.filter((item) => item.name !== itemId);
+        this.items = this.items.filter((item) => item.name !== this.itemId);
       })
       .catch((error) => {
         console.error('Error deleting Lease Contract:', error);

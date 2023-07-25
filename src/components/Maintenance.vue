@@ -4,36 +4,51 @@
       <v-card v-if="items.length === 0" class="mt-3" loading>
         <v-card>Please Wait Loading...!</v-card>
       </v-card>
+
       <v-card v-else v-for="item in items" :key="item.id" class="mt-3">
         <div class="flex">
-          <v-card-title>{{ item.id }}</v-card-title
-          ><span class="text-center mt-2"
-            ><v-chip :color="getPriorityColor(item.priority)">{{
-              item.priority
-            }}</v-chip></span
-          >
-        </div>
-        <v-card-subtitle>{{ item.tenant }}</v-card-subtitle>
-        <div class="flex align-center ml-4 my-2">
-          <div class="mr-2">{{ item.property }}</div>
-          &rarr;
-          <div>
-            <v-list-item-subtitle> {{ item.unit }}</v-list-item-subtitle>
-          </div>
-        </div>
-        <v-card-text>Requsted Date: {{ item.reqdate }}</v-card-text>
-        <v-card-text>Maintenance Date: {{ item.maindate }}</v-card-text>
-        <h2 id="status" :class="getStatusClass(item.status)">
-          {{ item.status }}
-        </h2>
+          <v-row>
+            <v-col>
+              <div class="flex">
+              <v-card-title>{{ item.id }}</v-card-title
+              ><span class="text-center mt-2"
+                ><v-chip :color="getPriorityColor(item.priority)">{{
+                  item.priority
+                }}</v-chip></span
+              >
+            </div>
 
-        <v-card-actions>
-          <v-btn
-            variant="outlined"
-            class="ml-2"
-            @click=";(dialogVisible = true), selectItem(item)"
-            >Change status</v-btn >
-        </v-card-actions>
+              <v-card-subtitle>{{ item.tenant }}</v-card-subtitle>
+              <div class="flex align-center ml-4 my-2">
+                <div class="mr-2">{{ item.property }}</div>
+                &rarr;
+                <div>
+                  <v-list-item-subtitle> {{ item.unit }}</v-list-item-subtitle>
+                </div>
+              </div>
+              <v-card-text>Requsted Date: {{ item.reqdate }}</v-card-text>
+              <v-card-text>Maintenance Date: {{ item.maindate }}</v-card-text>
+              <h2 id="status" :class="getStatusClass(item.status)">
+                {{ item.status }}
+              </h2>
+
+              <v-card-actions>
+                <v-btn
+                  variant="outlined"
+                  class="ml-2"
+                  @click=";(dialogVisible = true), selectItem(item)"
+                  >Change status</v-btn
+                >
+              </v-card-actions>
+            </v-col>
+            <v-col>
+              <img class="mt-8 ml-28"
+                style="max-width: 250px; "
+                src="../assets/img/Pipeline maintenance-amico.svg"
+              />
+            </v-col>
+          </v-row>
+        </div>
       </v-card>
 
       <v-dialog v-model="dialogVisible" max-width="500">
@@ -62,7 +77,7 @@
 
 <script>
 import axios from 'axios'
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
 export default {
   name: 'Maintenance',
   data() {
