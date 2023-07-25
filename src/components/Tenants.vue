@@ -388,7 +388,7 @@ export default {
         )
         .then((response) => {
           this.duesData = response.data.data
-          console.log('Dues', duesData)
+          
           
         })
         .catch((error) => {
@@ -409,7 +409,7 @@ export default {
         )
         .then((response) => {
           this.transactionData = response.data.data
-          console.log('Transaction', transactionData)
+         
           
         })
         .catch((error) => {
@@ -457,7 +457,7 @@ export default {
       }
       console.log('TenantData is :', TenantData)
       this.fetchTenant()
-      this.$router.push('/tenants')
+      this.$router.push('/tenants') 
 
       this.postData(TenantData)
       this.closeDialog()

@@ -14,6 +14,7 @@ import TenantsView from './components/TenantView.vue'
 import LeaseContract from './components/Leasecontracts.vue'
 import Maintenance from './components/Maintenance.vue'
 import Hr  from './components/Hr.vue'
+import Accounting from './components/Accounting.vue'
 
 const routes = [
   {
@@ -77,6 +78,11 @@ const routes = [
     path: '/hr',
     name: 'HR',
     component: Hr
+  },
+  {
+    path: '/accounting',
+    name: 'Accounting',
+    component: Accounting
   },
 ]
 const router = createRouter({
