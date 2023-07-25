@@ -44,7 +44,7 @@
             <v-col>
               <img class="mt-8 ml-28"
                 style="max-width: 250px; "
-                src="../assets/img/Pipeline maintenance-amico.svg"
+                src="../assets/img/maintenance.svg"
               />
             </v-col>
           </v-row>
